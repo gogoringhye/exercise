@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{list-style: none;cursor: pointer;}
+        img{width: 200px;}
+    </style>
+</head>
+
+<body>
+    <h1>동물원 현황 리스트</h1>
+    <ul class="memberList">
+        <li><img src="https://cdn.pixabay.com/photo/2014/06/30/08/02/zitronenfalter-fish-380037_1280.jpg" alt="레몬 나비고기" id="레몬 나비고기"></li>
+        <li><img src="https://cdn.pixabay.com/photo/2015/10/12/22/43/fox-985292_1280.jpg" alt="레드폭스" id="레드폭스"></li>
+        <li><img src="https://cdn.pixabay.com/photo/2016/03/04/22/54/animal-1236875_1280.jpg" alt="판다" id="판다"></li>
+    </ul>
+    
+    <script>
+    //[1]
+    //이벤트 위임
+    let lis=document.querySelectorAll('li')
+    lis.forEach(function(ele){})//--> 화살표함수 변환
+    lis.forEach((ele)=>{})//매개변수 하나일때 괄호 생략 가능--> 아래쪽 모습이 됨
+    lis.forEach(ele=>{
+    ele.addEventListener('click',function(event){
+    // console.log(event.target)
+    // event.target
+    // 이벤트가 일어날 자식(객체)를 의미
+    // 즉, 이벤트 버블링의 가장 끝단에 위치한 마지막 요소를 반환 -- click한 요소를 의미함
+
+    //console.log(event.currentTarget)//currentTarget-->Target을 싸고있는 부모
+    console.log(this)
+    })  
+    })
+
+
+    //[2] 🔽 💥🕳💨 이벤트 위임 사용하는 이유 
+    //새로운 동물 추가
+    let memberList=document.querySelector('.memberList');
+    memberList.addEventListener('click',function(event) {
+    console.log(event.target.src)
+    console.log(event.target.id)
+
+    })
+
+    //동물 태그 추가
+    let liNode=document.createElement('li');
+
+    //img 엘리먼트 생성
+    let imgNode =document.createElement('img');
+
+    //생성한 이미지노드 엘리먼트(태그)에 속성 추가
+    imgNode.src = "https://cdn.pixabay.com/photo/2019/08/21/08/33/nose-4420535_1280.jpg" ;
+    imgNode.id = "뽀삐뽀삐뽀뽀삐뽀"; 
+    imgNode.alt="뽀삐뽀삐뽀뽀삐뽀"; 
+
+    //붙이기
+    liNode.appendChild(imgNode);
+    memberList.appendChild(liNode);
+
+    </script>
+</body>
+
+</html>
+

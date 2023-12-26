@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .image{}
+    .image img{width: 200px;}
+</style>
+</head>
+
+<body>
+    <div class="image"></div>
+    <script>
+        //이미지노드 만들기
+
+        //[1]
+        //1. element 생성(태그 생성)
+        //2. 생성한 이미지 요소에 속성을 추가 --> 2가지 방법 --> . vs setAttribute()
+        //3. 객체 붙이기 --> appendChild()
+
+        // let imgNode = document.createElement('img');
+
+
+
+        // <img src="" alt="">
+        // imgNode.src =
+        //     "https://mblogthumb-phinf.pstatic.net/MjAyMTAxMTVfMTQ3/MDAxNjEwNzE1NjI5NDg3.zVoKymGokWDVyo4LR4DGX0hcD0tOhekkrYrQXcFgrvog.j-77qhOAo8HG_hLeeo8PM1UFSZ4UQVpww9sRTX-A-6Qg.JPEG.dltldud33/IMG_8779.JPG?type=w800"
+
+        // imgNode.alt = "이미지";
+        // imgNode.width = 400;
+        // imgNode.height = 500;
+
+        // console.log(imgNode)
+
+        // let image = document.querySelector(".image");
+
+        // image.appendChild(imgNode)
+
+        //[2] 메서드를 이용하여 속성을 추가 --> setAttribute()
+        //setAttribute() 메서드를 이용하여 속성을 추가할시 장점 ==> 사용자 정의 속성을 직접 만들어서 추가하는 것이 가능하다(.은 이미 있는 것만 사용 가능)
+
+        let imgNode = document.createElement('img');
+
+        //imgNode.setAttribute(속성,속성값)
+        imgNode.setAttribute("src","https://media.tenor.com/LwAj6t6N-DkAAAAC/jokebear-%EB%86%8D%EB%8B%B4%EA%B3%B0.gif")
+        imgNode.setAttribute("alt","이미지")
+        imgNode.setAttribute("width",400)//숫자는 따옴표로 묶으면 안됨
+        imgNode.setAttribute("addProperty","obj1")
+
+        let image = document.querySelector(".image");
+
+        image.appendChild(imgNode)
+
+
+        
+    </script>
+</body>
+
+</html>

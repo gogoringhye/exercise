@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //객체:관련된 정보를 묶어서 하나의 데이터로 저장함
+    let patient={
+      name:"홍길동",
+      age:17,
+      disease:"cold"
+    }
+    console.log(patient)
+    console.log(patient.name)//홍길동
+    console.log(patient['name'])//홍길동
+
+    patient.name="김홍도";
+    console.log(patient)//{name: '김홍도', age: 17, disease: 'cold'}
+    patient.age=25;
+    console.log(patient)//{name: '김홍도', age: 25, disease: 'cold'}
+
+    let patientList=[
+      {name:"김놀부",age:15},
+      {name:"김흥부",age:13},
+      {name:"박제비",age:30},
+    ];
+    console.log(patientList)//3개 다 부르기
+    console.log(patientList[1])//{name: '김흥부', age: 13}
+    console.log(patientList[1].name)//김흥부
+    console.log(patientList[1]['name'])//김흥부
+    
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+
+    let name="홍길동";
+    let age=18;
+    //let person={name:name, age:age} //첫번째 name은 key값, 두번째name은 value대신 변수이름
+    // 🔽줄임말
+    let person={name,age}
+
+    console.log(person)//{name: '홍길동', age: 18}
+
+    //💡객체를 분해하는 과정 = 구조분해문법
+    let 우리반여학생={
+      name11:"김나혜",
+      age11:20,
+    }
+
+    //💡객체를 변수로 분리하고자 할때
+    //let name11=우리반여학생.name11;
+    //let age11=우리반여학생.age11;
+    //🔽key값이랑 변수이름이 같을때만 줄일 수 있음
+    let {name11,age11}=우리반여학생
+    console.log(`이름:${name11},나이는 ${age11}`)
+
+    //💡배열을 변수에 담기
+    let array=[1,2,3];
+    // let one = array[0];
+    // let two = array[1];
+    // let three = array[2];
+    //🔽
+    let[one,two,three]=array
+    console.log(one,two,three)//1 2 3.
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+    //🚩예제1
+    //let [...rest]=array;
+    //console.log(rest)    
+    
+    let [a,...rest]=array;
+    console.log(a, rest)//1  [2, 3] => 나머지는 배열로받음
+
+    //🚩예제2
+    let 사람={
+      name22:"박지은",
+      age22:18,
+      run22:true
+    }
+
+    //🚩예제3
+    //let {name22,age22,run22}=사람
+    let {name22,...rest22}=사람
+    console.log(name22,rest22) //박지은 {age22: 18, run22: true} => 이름은 변수 name22로 받고,나머지는 객체로 받음
+
+    let aa = [1,2];
+    let bb = [3,4];
+    let cc = [5,6];
+
+    let result = aa.concat(bb,cc)
+    console.log(result)//[1, 2, 3, 4, 5, 6]
+    
+    let result1 = [...aa,...bb,...cc]
+    console.log(result1)//[1, 2, 3, 4, 5, 6]
+
+    //🚩예제4
+    let 사람들=[
+      '김일동',
+      '김이동',
+      '김삼동',
+      '김사동',
+      '김오동',
+      '김육동',
+      '김칠동',
+      '김팔동',
+    ];
+
+    for(let i=0; i<사람들.length; i++){
+      console.log(사람들[i])
+    }
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+     사람들.forEach(function(item){
+       console.log(item)
+     }) 
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+    // let 함수=function(item){
+    //     console.log(item)
+    // }
+    //🔽화살표함수
+    let 함수=item=>console.log(item)
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+    사람들.forEach(함수)
+
+    //사람들.forEach(function(item,index){
+    //console.log(item,index)
+    //}) 
+
+    //화살표 함수로 변경
+    사람들.forEach((item,index)=>console.log(item,index)) 
+    //➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+    //🚩예제5
+    let 시민들=[
+      {name:'박일동',age:16,gender:"남"},
+      {name:'박이동',age:17,gender:"여"},
+      {name:'박삼동',age:18,gender:"남"},
+      {name:'박사동',age:19,gender:"여"},
+      {name:'박이동',age:20,gender:"남"},
+    ]
+
+    //✅name만 배열로 출력하고 싶다면
+    //let namePrint=시민들.map(function(ele){
+    //return ele.name
+    //}) 
+
+    //화살표 함수로 변경
+    let namePrint=시민들.map(ele=>ele.name)
+
+    console.log(name.Print)//['박일동', '박이동', '박삼동', '박사동', '박이동']
+
+    //✅filter함수
+    // let filt=시민들.filter(function(item){ //모든 박삼동을 다 찾는다.
+    // return item.name == "박삼동"
+    // }) 
+
+    //화살표 함수로 변경
+    let filt=시민들.filter(item=> item.name == "박삼동") //모든 박삼동을 다 찾는다.
+  
+
+    console.log(filt)//[{name: '박삼동', age: 18, gender: '남'}]
+
+    //console.log(시민들)
+
+    //✅find함수
+    // let fin=시민들.find(function(item){ //첫번째 박이동을 찾으면 순회끝
+    // return item.name == "박이동";
+    // }) 
+
+    //화살표 함수로 변경
+    let fin=시민들.find(item=>item.name == "박이동") //괄호 안에는 절대 세미콜론 찍으면 안됨
+
+    console.log(fin)//{name: '박이동', age: 17, gender: '여'}
+
+    //✅fill --> fill(1): 함수의 아이템들을 모두 1로 바꾼다
+
+    let arr=[1,2,3,4,5];
+    // let result2=arr.fill(1).map(function(item){
+    // return item + 3;
+    // })
+
+    //화살표 함수로 변경
+    let result2=arr.fill(1).map(item=> item + 3;)
+    
+    console.log(result2)//[4, 4, 4, 4, 4]
+
+
+  </script>
+</body>
+</html>

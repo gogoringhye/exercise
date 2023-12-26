@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btn2" style="border: 3px solid red;">
+        <p id="btn" style="border: 3px solid blue;">클릭!!</p>
+    </div>
+    <script>
+        //버블링, 캡처링
+        let btn = document.getElementById('btn');
+        let btn2 = document.getElementById('btn2');
+        //버튼.addEventListener(1, 2, 3) //3번째 인자가 생략되면 그것의 기본값은 false
+        //버튼.addEventListener(1, 2)
+        //버튼.addEventListener(1, 2, false)
+
+        //3번째의 인자값이 
+        //false -- 버블링(Propagation(전파))
+        //      -- 버블링의 동작 --> 이벤트가 클릭이라는 이벤트가 발생한 요소에서 window까지 이벤트가 전파(Propagation)
+        //true -- 캡처링
+        //     -- (버블링의 반대//자식에게 전달됨, 보통 아무것도 안적으면 false 적용) --> 버블링 돼서 잘안씀
+
+        // btn.addEventListener('click', function (e) {
+        //     e.stopPropagation() //버블링과 캡처링을 동시에 막아줌(false는 기본값 -- 무조건 버블링 일어남)
+        //     console.log('클릭-1')
+        // }, false)
+        // btn2.addEventListener('click', function (e) {
+        //     e.stopPropagation() //true -- 캡처링--> 캡처링을 막아줌
+        //     console.log('클릭-2')
+        // }, true)
+        //각자의 역할을 하고 있다
+
+
+        //target 설명
+        btn.addEventListener('click', function (e) {
+            console.log('클릭-1')
+            console.log(e.target)
+            console.log(e.currentTarget)
+        })
+        btn2.addEventListener('click', function (e) {
+            console.log('클릭-2')
+            console.log(e.target)//btn //target --> 이벤트가 일어날 객체(자식)
+            console.log(e.currentTarget)//btn2 //currentTarget --> 이벤트가 일어날 객체(자식)의 부모(내가 선택한 것의 부모)
+        })
+    </script>
+</body>
+
+</html>

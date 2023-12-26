@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+
+    <div id="memberList">
+        <p id="p1">홍길동</p>
+        <p id="p2">이순신</p>
+        <p id="p3">강감찬</p>
+    </div>
+
+    <script>
+        //[1] 첫번째 방식
+        //document.getElementById('btn')
+        //document.querySelector("#btn")// querySelector -- CSS 선택자를 사용하여 문서에서 특정 요소를 찾는 메서드, id가 "btn"인 요소
+        //document.getElementById('btn').addEventListener("click",()=>{
+        //    let memberList = document.getElementById('memberList')//parent Element
+        //    let p2=document.getElementById('p2');//삭제할 요소 child element
+
+        //추가할때도 부모요소에 추가한것처럼 
+        //삭제할때도 부모요소에서 자식요소를 삭제한다.
+
+        //    memberList.removeChild(p2)
+        //})
+
+        //[2] 두번째 방식
+        document.getElementById('btn').addEventListener('click', () => {
+            let p2 = document.getElementById('p2'); //child element --> 삭제할 요소
+            p2.parentNode.removeChild(p2)
+        })
+    </script>
+</body>
+
+</html>
