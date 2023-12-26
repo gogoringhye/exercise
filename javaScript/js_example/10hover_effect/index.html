@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- robin-dela/hover-effect, readme.md 들어가기(Basic usage 내용 보고 차근차근 가져오라는 것 가져오면서 따라하면 됨)-->
+    <div class="hover_effect">
+        <div class="my-div"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js"></script><!-- three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script><!-- gsap -->
+    <script src="js/hover-effect.umd.js"></script>
+    <!--robin-dela/hover-effect,dist-->
+    <script>
+        var myAnimation = new hoverEffect({
+            parent: document.querySelector('.my-div'),
+            intensity: 0.3,
+            image1: 'img/main1.jpg',
+            image2: 'img/main2.jpg',
+            displacementImage: 'img/displacement/1.jpg',
+            imagesRatio: 300 / 400 //너비 조정 원하면 Optional parameters의 imagesRatio 조정
+        });
+    </script>
+</body>
+
+</html>

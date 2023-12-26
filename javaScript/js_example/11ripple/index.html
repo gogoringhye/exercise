@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- css script 사이트에서 ripple 검색 예제 검색 후 ctrl+u하여 페이지소스 긁어오기 -->
+	<div class="demo-btn">
+		<h1>Using Start/Stop</h1>
+		<div class="balloon-ctr">
+			<div class='div5 demo'></div>
+			<div class="controls">
+				<button class="start control btn btn_primary">Start</span>
+					<button class="stop control btn btn_primary">Stop</span>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+	<script src="js/ripple-effect.min.js"></script>
+	<script>
+		var ripple6 = new RippleEffect({
+			parent: document.querySelector('.div5'),
+			texture: 'https://cdn.pixabay.com/photo/2018/10/11/17/38/angel-3740393_1280.jpg',
+			intensity: 1.0, //물결의 속도
+			strength: .5, //강도
+			waveSpeed: 0.002, //속도
+			hover: false
+		}); //이미지가 어두워야 물결이 잘 보임
+		document.querySelector('.start').addEventListener('click', ripple6.start);
+		document.querySelector('.start').click(); //강제로 클릭시켜서 시작하자마자 돌아가게함
+		document.querySelector('.stop').addEventListener('click', ripple6.stop);
+
+		//위에서(hover: true) 이미 그 기능을 하고 있어서 아래 코드는 필요없음
+		// document.querySelector('.div5').addEventListener('mouseenter', ripple6.stop);
+		// document.querySelector('.div5').addEventListener('mouseleave', ripple6.start);
+	</script>
+</body>
+
+</html>
