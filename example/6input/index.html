@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <h2>사용자로부터 입력받기</h2>
+        <div class="첫째">
+            <form action="#">
+                <!-- //label의 for의 값과 input의 id의 값이 같아야 연결됨 -->
+                <label for="name">이름</label>
+                <input type="text" id="name" name="my-name">
+                <br><br>
+                <label for="age">나이</label>
+                <input type="number" id="age" name="my-age">
+                <br><br>
+                <button type="submit">제출</button>
+                <button type="reset">초기화</button>
+            </form>
+        </div>
+        
+        <div class="둘째">
+            <form action="#">
+                <fieldset>
+                    <legend>반장</legend>
+                    <label for="name1">이름</label>
+                    <input type="text" id="name1" name="name-1">
+                    <br><br>
+                    <label for="age1">나이</label>
+                    <input type="number" id="age1" name="age-1">
+                </fieldset>
+
+                <fieldset>
+                    <legend>부반장</legend>
+                    <label for="name2">이름</label>
+                    <input type="text" id="name2" name="name-2">
+                    <br><br>
+                    <label for="age2">나이</label>
+                    <input type="number" id="age2" name="age-2">
+                </fieldset>
+            </form>
+        </div>
+        <div class="셋째">
+            <form action="#">
+                <label for="txt">text</label>
+                <input type="text" id="txt" placeholder="5자 이하" maxlength="5">
+                <br><br>
+                <label for="src">search</label>
+                <input type="search" id="src">
+                <br><br>
+                <button type="submit">제출</button>
+            </form>
+        </div>
+        <div class="넷째">
+            <label for="num">number</label>
+            <input type="number" name="num" id="num" min="0" max="10">
+
+            <label for="rg">range</label>
+            <input type="range" min="0" max="100" step="20"><!-- 바가 20단위씩 끊겨서 움직임 -->
+
+            <label for="dt">date</label>
+            <input type="date" id="dt" min="2020-01-01" max="2025-12-31"><!-- 날짜를 설정하지 않으면 무한대로 보임 -->
+
+            <form action="#">
+                <label for="name3">이름 : </label>
+                <input type="text" id="name3" required> <!-- 필수 -->
+                <label for="part">웹반: </label>
+                <input type="text" id="part" value="웹반" readonly> <!-- 읽기전용(값을 바꿀 수 없음) -->
+                <button type="submit">버튼</button>
+            </form>
+
+        </div>
+        <div class="다섯째">
+            <h3>메모</h3>
+            <label for="mg">메시지를 입력하세요</label><br>
+            <textarea name="msg" id="mg" cols="100" rows="10"></textarea>
+            <!--cols:세로 열수, rows:행(가로) -->
+        </div>
+
+        <div class="여섯째">
+            <h3>select, option태그</h3>
+            <label for="lang">언어</label>
+            <select name="lang" id="lang">
+                <option value="">--언어 선택--</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javaScript">자바스크립트</option>
+                <option value="React">리액트</option>
+            </select>
+
+            <h3>optgroup태그</h3>
+            <label for="shopping">쇼핑목록</label>
+            <select name="shop" id="shopping">
+                <optgroup label="과일">
+                    <option value="f_apl">사과</option>
+                    <option value="f_grp">포도</option>
+                    <option value="f_org">오렌지</option>
+                </optgroup>
+                <optgroup label="채소">
+                    <option value="v_crt">당근</option>
+                    <option value="v_crt">토마토</option>
+                    <option value="v_crt">가지</option>
+                </optgroup>
+                <optgroup label="육류">
+                    <option value="m_bef">소고기</option>
+                    <option value="m_prk">돼지고기</option>
+                    <option value="m_ckn">닭고기</option>
+                </optgroup>
+            </select>
+        </div>
+        <!-- value 값이 서버로 넘어감 -->
+
+        <div class="일곱째">
+            <fieldset>
+                <legend>성별</legend>
+                <input type="radio" name="gender" checked>남자
+                <input type="radio" name="gender">여자
+                <!-- radio 버튼은 반드시 둘 중에 하나만 골라야 함 -->
+                <!-- name끼리 같아야함 -->
+            </fieldset>
+
+            <fieldset>
+                <legend>지역선택</legend>
+                <input type="text" name="area" checked>서울
+                <input type="text" name="area">경기
+                <input type="text" name="area">인천
+                <input type="text" name="area">부산
+            </fieldset>
+
+            <fieldset>
+                <legend>좋아하는 과일을 모두 선택</legend>
+                <input type="checkbox" name="fruit" checked>사과
+                <input type="checkbox" name="fruit">배
+                <input type="checkbox" name="fruit">토마토
+                <input type="checkbox" name="fruit">수박
+                <input type="checkbox" name="fruit">참외
+            </fieldset>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 🚨label의 for의 값과 input의 id의 값이 같아야 연결됨 -->
+
+
+<!-- 입력 폼과 값을 일치시켜야 하는 몇 가지 일반적인 예시
+//입력 값이 서로 일치하는지 확인하여 사용자에게 오류 메시지를 표시하거나, 서버 측에서 이를 검증하여 올바른 데이터만을 처리하도록 하는 것이 목적
+
+//비밀번호 확인:
+사용자가 비밀번호를 입력할 때, 일반적으로 비밀번호 확인 필드가 함께 제공됨(사용자의 실수로 잘못된 비밀번호를 입력하는 것을 방지 가능)
+
+<p>
+    <label for="user_pw">Password</label>
+    <input type="password" id="user_pw" placeholder="Password" name="pw">
+</p>
+
+<p>
+    <label for="user_pwcf">Confirm Password</label>
+    <input type="password" id="user_pwcf" placeholder="Confirm password" name="pwcf">
+</p>
+
+//이메일 주소 확인:
+이메일 주소를 두 번 입력하게 함으로써, 사용자가 실수로 오타를 낼 경우 방지 가능
+
+<P>
+    <label for="user_email">Email</label>
+    <input type="email" id="user_email" placeholder="Email" name="email">
+</P>
+
+<p>
+    <label for="user_emailcf">Confirm Email</label>
+    <input type="email" id="user_emailcf" placeholder="Confirm email" name="emailcf">
+</p>
+
+//사용자 정보 확인:
+사용자의 이름 등 다른 정보도 확인을 위해 두 번 입력하는 경우가 있음
+
+<p>
+    <label for="user_name">Name</label>
+    <input type="text" id="user_name" placeholder="Name" name="name">
+</p>
+
+<p>
+    <label for="user_namecf">Confirm Name</label>
+    <input type="text" id="user_namecf" placeholder="Confirm name" name="namecf">
+</p> -->

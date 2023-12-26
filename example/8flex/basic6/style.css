@@ -1,0 +1,26 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000; background-color: green;}
+.container .item{border: 2px solid #000; background-color: yellow;}
+
+
+.container {display: flex;}
+
+.item {width: 100px;flex-grow: 1;}
+
+/* flex-grow & flex-shrink (쌍을 이루는 속성) 
+
+// flex-grow(유연하게 늘리기), 늘어나지 말라고 태어날 때 0으로 태어남 
+// 아이템이 flex-basis의 값보다 커질 수 있는지 결정하는 속성
+// flex-grow에는 숫자값이 들어가며, 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 원래의 크기보다 커지면서 빈 공간을 메움
+
+/* //1:2:1의 비율로 세팅할 경우(부모가 쓰지 않은 공간을 4로 나눈 것) */ 
+.item:nth-child(1){flex-grow: 1;}
+.item:nth-child(2){flex-grow: 2;}
+.item:nth-child(3){flex-grow: 1;}
+
+
+/* flex-shrink(유연하게 줄이기) 
+// 아이템이 flex-basis의 값보다 작아질 수 있는지 결정 
+// flex-shrink에는 숫자값이 들어가는데, 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 flex-basis보다 작아짐*/

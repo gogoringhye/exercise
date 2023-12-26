@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #000;
+  background: green;
+  padding: 10px;
+}
+
+.container .item {
+  border: 2px solid #000;
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.item:nth-child(2) {
+  transform: scale(2);
+  /* 크기를 200% 키움 */
+}
+
+.item:nth-child(3) {
+  z-index: 10;
+  /* grid, flex는 z-index를 실행하기 위한 position이 없어도 실행됨 */
+}
+
+.item:nth-child(7) {order: 3;}
+
+.item:nth-child(8) {order: 1;}
+
+.item:nth-child(9) {order: 2;}

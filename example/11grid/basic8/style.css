@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #000;
+  background: green;
+  padding: 10px;
+}
+
+.container .item {
+  border: 2px solid #000;
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+/* gird-auto-flow: 자동배치 알고리즘--> 아이템이 자동 배치되는 흐름을 결정하는 속성*/
+
+.container {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+  grid-template-rows: repeat(5, minmax(100px, auto));
+  /* 5줄까지만 100px에 대한 영향을 받음 */
+  /*grid-auto-rows: minmax(100px, auto);//template이 통제 못하는 것이 얘가 관리함 */
+  grid-auto-flow: dense;/* dense-->밀집 */
+}
+
+.item:nth-child(2) {
+  /* grid-column: start/end;
+  grid-column: start/span 2; */
+  grid-column: auto/span 3;
+}
+
+.item:nth-child(5) {
+  grid-column: auto/span 3;
+}
+
+.item:nth-child(7) {
+  grid-column: auto/span 2;
+}
+.item:nth-child(12) {
+
+  grid-column: auto/span 2;
+}
+.item:nth-child(13) {
+  grid-column: auto/span 3;
+}

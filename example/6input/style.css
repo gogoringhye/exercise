@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+#wrap{}
+#wrap>div{
+    margin-top: 20px;
+    border-bottom: 3px solid #222;
+    padding: 0 5vw 20px;
+}
+
+input{outline: none;}/* 마우스를 올려도 주변이 까매지지 않음 */
+.둘째 form{padding: 10px; border: 1px solid #222;}
+.둘째 fieldset{padding: 10px;}

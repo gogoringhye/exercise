@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #000;
+  background: green;
+  padding: 10px;
+}
+
+.container .item {
+  border: 2px solid #000;
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+.container {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minimax(100px, auto);
+  gap: 10px;
+  /* align-items: center;
+  //각 셀 안에서의 움직임-높이(자기 영역안에서 내 위치를 어디로 넣을 것인지) */
+  justify-items: stretch;
+  /* 각 셀 안에서의 움직임-넓이 */
+
+  /* align-items, justify-items 옵션:stretch, start, end, center */
+
+  /* place-items: align-items justify-items; */
+  place-items: end center;/* 두개를 묶어서 많이 사용함 */
+}
+
+.item {}

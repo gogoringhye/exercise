@@ -1,0 +1,30 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000;background-color: green;}
+.container .item{border: 2px solid #000;background-color: yellow;}
+.container{display: flex;}
+
+/* 🤓 flex 되는 순간 자식만큼만 줄어듦--> 줄어들게 태어남 --> 늘어나지 않는다 */
+
+/* 줄어들어라--> flex-shrink:1 늘어나지마라 flex-grow:0 */
+
+/* //flex-grow(속성이 남는 공간을 분배해서 나눠가지는 것, 기본값은 0 & 값은 양수) 
+--> 0인 경우, 아이템이 늘어나지 않음--> 아이템은 flex 컨테이너의 남은 공간을 채우지 않고 원래 크기를 유지
+--> 1인 경우, 아이템이 늘어남--> 아이템이 flex 컨테이너의 남은 공간을 채우며, 다른 아이템보다 더 크게 늘어남
+
+    //flex-shrink(공간을 넘어갈 경우에 각 아이템들을 줄이는 방법을 설정, 기본값 1 & 값은 양수)
+--> 0인 경우, 아이템이 축소되지 않음--> 아이템은 flex 컨테이너의 크기를 넘어가는 경우에도 축소되지 않고 원래 크기를 유지
+--> 1인 경우, 아이템이 축소됨-> 아이템이 flex 컨테이너의 크기에 따라 축소됨
+    (만약 다른 아이템이 flex-shrink가 1보다 큰 값을 가지고 있다면, 큰 flex-shrink 값을 가진 아이템이 더 많이 축소됨) */
+
+.item:nth-child(1){width: 200px; flex-shrink: 0;}
+.item:nth-child(2){flex-grow:1}
+
+/* 일단 여기까지 배운 것만 알아도 flex 사용에는 문제 없음, 이후는 부가적인 설명이라고 하심 */
+
+
+
+
+
+

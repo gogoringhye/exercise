@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+:root {
+    /* //css에서 변수 만들기  */
+    --color: red;
+    --color2: blue;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 변수 사용하기 
+h2{color:var(--color); // 컬러가 레드다
+background-color:var(--color2); //백그라운드 컬러가 블루다} 
+*/
+
+/* 
+CSS 변수를 사용하면 색상, 글꼴 크기, 여백 등과 같은 값을 중앙에서 관리하고 일괄적으로 변경할 수 있어 유지보수가 용이
+ */
+
+
+.page1 {
+    height: 100vh;
+    /* 뷰포트의 높이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex는 자기 첫째 자식에게만 영향을 주고 넓이는 똑같이 적용됨(1분 코딩 아카이브 참조) */
+}
+
+.page1 .card {
+    position: relative;
+    width: 300px;
+    height: 450px;
+}
+
+.page1 .card span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100% / 6);
+    left: calc(100%/6*var(--i));
+    height: 100%;
+    background: none;
+}
+
+.page1 .card img {
+    position: absolute;
+    /*
+    이것을 사용해서 넓이 100%를 만듦
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; 
+    */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* 화면에 안보인다는 것이 아니라 이벤트와 관련된 것만 아무처리 안하는 것, 마우스를 올리더라도 어떤 이벤트를 갖지않음(ex 클릭, 마우스 오버) */
+    opacity: 0;
+}
+
+.page1 .card img:nth-of-type(1)
+
+/* 
+이미지끼리 중 첫번째(nth-child와 다름), 차이 알아야함 
+nth-child(n)  부모 요소의 모든 자식(요소) 중 n번째 
+nth-of-type(n)  부모 요소의 특정 자식(요소) 중 n번째
+*/
+    {
+    opacity: 1;
+}
+
+.page1 .card span:hover+img {
+    opacity: 1;
+}
+

@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.border {
+    height: 100vh;
+    /* //vh==> v:지금 보고 있는 화면의 h:높이
+       //vh==> v:뷰포트의 w:넓이 */
+    background-color: #e8ffb3;
+}
+
+
+.border .border_blob {
+    width: 480px;
+    height: 480px;
+    position: relative;
+    left: calc(50% - 240px);
+    /* 내 몸의 반만큼 앞으로 땡김 */
+    top: calc(50% - 240px);
+    /* 내 몸의 반만큼 위로 땡김 */
+    overflow: hidden;
+    /* 변화가 없어서 확인차 넣은 값 */
+    background-color: blueviolet;
+    /* 수평:h, 수직:v, 왼쪽:l, 오른쪽:r, 위쪽t, 아래쪽;b */
+    border-radius: 20px;
+    /* t1(위에서 왼쪽 값), tr(위에서 오른쪽), br(아래에서 오른쪽), bl(아래에서 왼쪽)*/
+    border-radius: 10px 40px;
+    /*tl br, tr bl(x자) */
+    border-radius: 10px 40px 80px;
+    /*tl, tr br(사선으로 같음), bl */
+
+    border-radius: 44% 56% 70% 30%/ 52% 30% 70% 48%;
+    /*border-radius: htl htr hbr hbl(수평)/ vtl vtr vbr vbl(수직);
+    ,fancy-border-radius 사이트에서 확인 가능함*/
+    animation: go 6s linear infinite alternate both/* 양쪽, 처음 나올 때 사각형 나오는 현상 막아줌 */;
+}
+
+.border .border_blob img {
+    width: 186%;
+    사진만 왼쪽으로 옮기고 싶을 때 여기에 값을 줘야하는 거 아닌지
+}
+
+/* 내 부모가 가진 넓이의 100% */
+
+.ro {
+    /* 겹쳐야 하므로 .border .border_blob 값을 그대로 줌 */
+    width: 480px;
+    height: 480px;
+    position: absolute;
+    /* 겹쳐야해서 absolute 시킴 */
+    left: calc(50% - 240px);
+    top: calc(50% - 240px);
+    animation: rotate 6s linear infinite alternate both;
+}
+
+.ro .border_blob2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 480px;
+    height: 480px;
+    border: 0.5px solid #222;
+    animation: go
+        /* keyframes에 있는 go */
+        6s/* keyframes에 있는 %에 대한 초 */linear infinite alternate both;
+}
+
+.ro .bb2 {
+    animation-delay: 2s;
+    /* 똑같이 돌아가는데 2초 늦게 돌아감 */
+}
+
+@keyframes go
+
+/* 이 이름은 내 마음대로 임의로 짓는 것임 */
+    {
+    0% {
+        border-radius: 35% 65% 36% 64% / 42% 42% 58% 58%;
+    }
+
+    50% {
+        border-radius: 54% 46% 50% 50% / 48% 49% 51% 52%;
+    }
+
+    100% {
+        border-radius: 61% 39% 57% 43% / 43% 56% 44% 57%;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg
+                /* 0도 */
+            );
+        /* 회전에 대한 변형을 시키겠다 */
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

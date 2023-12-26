@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+.container{border: 2px solid #000;
+background-color: violet;
+padding: 10px;}
+.item{border: 2px solid #000;
+background-color: rosybrown;
+padding: 10px;}
+
+
+/* auto-fill, auto-fit 
+✅공통점:개수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한 셀을 채운다.
+✅auto-fill:부모의 빈공간을 채우지는 않는다.
+✅auto-fit:알아서 너비를 조절하여 부모를 가득채움
+*/
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 20%);
+    grid-template-columns: repeat(3,minmax(20%, auto));
+    grid-template-columns: repeat(auto-fit,minmax(18%, auto));
+    grid-template-columns: repeat(auto-fill,minmax(18%, auto));
+  }
+  
+  
+  .container .item{}

@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+:root {
+    --main-bg-color: #222;
+    --main-div-color: #131313;
+    --width: 95%;
+    --max-width: 1600px;
+    --border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    background-color: var(--main-bg-color);
+}
+
+h1 {
+    /* font-size: clamp(최소값,기본값,최대값) */
+    font-size: clamp(2rem, 7vw, 6rem);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+#hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 줄넘김 처리 설정, 깨진게 복구됨 ㄷㄷ */
+}
+
+.container {
+    width: var(--width);
+    /* 넓이 95% */
+    max-width: var(--max-width);
+    background-color: var(--main-div-color);
+    padding: 2rem;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    flex-shrink: 0;
+    /* 줄어들지말라고 0을 줌 */
+
+}
+
+/* slick과 마찬가지로 내부적인 옵션이 많기 때문에 꼬이므로 svg의 부모에게 값을 줘야지 걔 자체를 건들면 안됨 */
+
+.nav_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav_container nav {
+    width: 450px;
+}
+
+.nav_container nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_container nav ul li a {
+    opacity: 0.8;
+}
+
+
+.hero_text {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* 1줄을 12칸으로 나누겠다 */
+    margin-bottom: 2rem;
+}
+
+.hero_text .sub_header {
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+}
+
+.hero_text .sub_header .circle {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #d6a3e4;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    vertical-align: -5px;
+}
+
+.hero_text .sub_header h4 {
+    font-weight: bold;
+}
+
+.hero_header {
+    grid-column: span 12;
+    margin-bottom: 1rem;
+}
+
+.hero_intro {
+    grid-column: span 5;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+
+/* 🎃carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.carousel_inner {
+    width: 200%;
+    display: flex;
+    animation: marque 10s linear infinite;
+}
+
+.carousel_inner .item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel_inner .item img {
+    width: 60%;
+}
+
+@keyframes marque {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.left_carousel {
+    /*carousl 안에 들어있기 때문에 carousl가 
+    기준이 되어주라고 position: relative;를 줌 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(270deg, transparent, var(--main-div-color));
+    z-index: 10;
+}
+
+.right_carousel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--main-div-color));
+    z-index: 10;
+}
+
+#about {
+    display: flex;
+    justify-content: center;
+}
+
+.about_container {
+    position: relative;
+    top: 0;
+    width: var(--width);
+    max-width: var(--max-width);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* 1fr을 12번 반복, 그리드 컨테이너의 열을 12개 만듦 */
+}
+
+.about_text {
+    grid-column: span 5;
+    /* 12개 중에 5개는 뭉쳐서 쓰겠다 */
+    padding-left: 2rem;
+}
+
+.bottom_div {
+    flex-shrink: 0;
+    width: var(--width);
+    max-width: var(--max-width);
+    position: relative;
+    padding-top: 30px;
+
+}
+
+.left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.curve {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-div-color);
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+    border-top-right-radius: var(--border-radius);
+    z-index: 5;
+}
+
+.right {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    background-color: var(--main-div-color);
+    padding: 1rem;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.serviecs {
+    width: 100%;
+    padding: 1rem;}

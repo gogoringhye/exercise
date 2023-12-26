@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+
+.wrap{width: 900px; margin: 0 auto;
+padding: 10% 0;
+}
+.wrap>div{
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+}/* >: 자식(직계 자손), "wrap" 클래스의 직계 자식 중에서 태그 이름이 "div"인 모든 요소 선택*/
+
+/* >와 .> 차이점
+
+// > 
+// 👶 자식 선택자(child combinator)--> 
+// 부모 요소 바로 아래에 있는 자식 요소를 선택
+
+예를 들어, .parent > .child는 
+.parent 바로 아래에 있는 자식 중에서 클래스가 .child인 요소를 선택
+
+// . 
+// 📍 클래스 선택자(class selector)--> 
+// 문서 내에서 특정 클래스를 가진 모든 요소를 선택(.짱아인 모든 요소)*/
+
+
+
+.wrap>div h2{text-align: center; margin: 10px 0;}
+h1{text-align: center;}
+
+/* table1 */
+.table1{}
+.table1 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+}
+.table1 tr{}
+.table1 tr th{border: 1px solid #ccc;}
+.table1 tr td{border: 1px solid #ccc;}
+
+/* table2 */
+.table2{}
+.table2 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+}
+.table2 tr{}
+.table2 tr th{border: 1px solid #ccc;}
+.table2 tr td{border: 1px solid #ccc;}
+
+/* table3 */
+.table3{}
+.table3 table{border-top: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+width: 100%; text-align: center;
+background-color: azure;
+border-collapse: collapse;/* 표의 선사이의 공간을 없애줌 */
+}
+.table3 tr{}
+.table3 tr:nth-child(1){
+    border-bottom: 3px double #000;/* double 1px은 티가 안남 */
+}
+.table3 tr:nth-child(2){
+   height: 100px;
+}
+.table3 tr th{border: 1px solid #ccc;}
+.table3 tr th:nth-child(1){border-left: none;}
+.table3 tr th:nth-child(3){border-right: none;}
+.table3 tr td{border: 1px solid #ccc;}
+.table3 tr td:nth-child(1){border-left: none;}
+.table3 tr td:nth-child(3){border-right: none;}
+
+.table3 tr th:nth-child(1){width: 30%;}
+.table3 tr th:nth-child(2){width: 50%;}
+.table3 tr th:nth-child(3){width: 20%;}
+
+
+/* table4 */
+.table4{}
+.table4 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+border-collapse: collapse;
+}
+.table4 tr{}
+.table4 tr th{border: 1px solid #ccc;}
+.table4 tr td{border: 1px solid #ccc;}
+
+/* table5 */
+.table5{}
+.table5 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+border-collapse: collapse;
+}
+.table5 tr{}
+.table5 tr th{border: 1px solid #ccc;}
+.table5 tr td{border: 1px solid #ccc;}
+
+/* table6 */
+.table6{}
+.table6 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+border-collapse: collapse;
+}
+.table6 tr{}
+.table6 tr th{border: 1px solid #ccc;}
+.table6 tr td{border: 1px solid #ccc;}
+
+/* table7 */
+.table7{}
+.table7 table{border: 1px solid #ccc;
+width: 100%; text-align: center;
+border-collapse: collapse;
+}
+.table7 tr{}
+.table7 tr th{border: 1px solid #ccc;}
+.table7 tr td{border: 1px solid #ccc;}
+
+/* .table7 tr:nth-child(2n){짝수 */
+    .table7 tr:nth-child(even){/* 짝수 */
+        background-color: rgba(230, 117, 117, 0.361);
+    
+    }
+    /* .table7 tr:nth-child(2n+1){홀수 */
+    .table7 tr:nth-child(odd){/* 홀수 */
+        background-color: rgba(117, 194, 230, 0.361);
+    }
+    
+    .table7 tr th:nth-child(even),
+    .table7 tr td:nth-child(even){
+        background-color: rgba(230, 117, 228, 0.361);
+    }
+    
+    .table7 tr th:nth-child(odd),
+    .table7 tr td:nth-child(odd){
+        
+    }
+
+/* table8 */
+.table8{}
+.table8 table{
+width: 100%; text-align: center;
+border-collapse: collapse;
+}
+.table8 tr{border-bottom: 1px solid #ccc;}
+.table8 tr:hover{
+    background-color: rgba(143, 184, 215, 0.565);
+}
+.table8 tr th,
+.table8 tr td{padding: 15px;}
+
+/* table9 */
+.table9{}
+.table9 table{
+width: 100%; text-align: center;
+border-collapse: collapse;border: 1px solid #ccc;
+}
+.table9 tr{}
+.table9 tr:hover{
+    background-color: rgba(143, 184, 215, 0.565);
+}
+.table9 tr th,
+.table9 tr td{padding: 15px;border: 1px solid #ccc;}
+.table9 colgroup col:nth-child(1){background-color: rgba(217, 46, 46, 0.387);}
+.table9 colgroup col:nth-child(2){background-color: rgba(191, 217, 46, 0.387);}

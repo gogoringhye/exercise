@@ -1,0 +1,28 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000;background-color: green;}
+.container .item{border: 2px solid #000;background-color: yellow;}
+
+
+.container {display: flex;}
+
+/* order(배치 순서)
+// 숫자값이 들어가며, 작은 숫자일 수록 먼저 배치됨 
+// “시각적” 순서일 뿐, HTML 자체의 구조를 바꾸는 것은 아니므로 접근성 측면에서 사용에 주의
+(시각 장애인분들이 사용하는 스크린 리더로 화면을 읽을 때, order를 이용해 순서를 바꾼 것은 의미 없음)*/
+
+.item:nth-child(1){order:3 }
+.item:nth-child(2){order:1 }
+.item:nth-child(3){order:2; height: 100px; margin: auto 0;}
+
+
+/* z-index(z축 정렬)
+// 숫자가 클 수록 위로 올라옴
+// position에서의 z-index랑 똑같이 생각하시면 됩니다. */
+
+.item:nth-child(2) {
+	z-index: 1;
+	transform: scale(2);
+}
+/* z-index를 설정 안하면 0이므로, 1만 설정해도 나머지 아이템을 보다 위로 올라옴 */

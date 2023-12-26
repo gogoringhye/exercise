@@ -1,0 +1,47 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000;
+background-color: green;
+}
+.container .item{
+    border: 2px solid #000;
+    background-color: yellow;
+}
+
+
+.container{
+    display: flex;
+    }
+    
+    .item{ 
+        width:200px;
+       
+        /* flex-grow:1 --> 늘어날 공간이 있으면 늘어나겠다
+        // flex-shrink:1--> 줄어들 공간이 있으면 줄어들겠다
+        // flex-basis:auto --> 넓이를 설정했다면 그것을 인식하겠다 */
+
+        /* flex(flex-grow, flex-shrink, flex-basis를 한 번에 쓸 수 있는 축약형 속성)
+        // 세 속성들은 서로 관련이 깊기 때문에, 이 축약형을 쓰는 편이 여러모로 편리함.
+        // 주의 🚨 flex: 1; 이런 식으로 flex-basis를 생략해서 쓰면 flex-basis의 값은 0임 */
+
+        flex: 1;
+        /* flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+        flex: 1 1 auto;
+        /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+        flex: 1 300px;
+        /* flex-grow: 1; flex-shrink: 1; flex-basis:300px; */}
+
+
+
+
+    /* width는 글자의 너비를 포함하지 않고 줄어들었는데 flex-basis는 글자를 포함하여 줄어들었음 --> width와 flex-basis의 차이는?
+    
+    // flex-basis: flexbox 레이아웃에서 flex 아이템의 초기 크기를 설정하는 데 사용 
+    // flex-basis는 아이템이 flex 컨테이너에서 차지할 초기 공간을 지정하는 것이지 내용의 크기를 고려하지 않음 
+    // 일반적으로 flex-basis의 값이 글자의 넓이를 포함하지 않고, flex-basis의 값이 어떻게 계산되는지에 따라서 글자의 넓이를 포함할지 여부가 결정됨.
+    // 컨테이너의 크기가 flex-basis로 설정되는 경우, 해당 컨테이너의 크기가 글자의 넓이를 포함할 수 있음
+
+    🚨 flex-basis--> 글자의 크기를 결정하는 것이 아니라, 그것이 속한 컨테이너의 크기를 지정하는 것 */
+    
+  

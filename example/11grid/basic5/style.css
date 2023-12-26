@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #000;
+  background: green;
+  padding: 10px;
+}
+
+.container .item {
+  border: 2px solid #000;
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+.container {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.container .item {}
+
+.container .item:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  /* //개발자모드 grid 라인번호 1~3까지 공간을 확보한다(2칸임) */
+  /* 🔽줄임말*/
+  grid-column: 1/3;
+
+
+  /*grid-column-start: 1;
+  grid-column-end: 4;
+  grid-column:1/4; */
+
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-row: 1/4
+}
+
+.item:nth-child(3) {
+  grid-column: 2;
+  /* 라인을 2부터 1칸을 확보 */
+  grid-row: 5;
+  z-index: 10;
+  /* positon없이 실행됨(display:flex, grid) */
+}
+
+.item:nth-child(4) {
+  grid-column: 2;
+  /* 라인을 2부터 1칸을 확보 */
+  grid-row: 5;
+}
+
+.item:nth-child(8) {
+  /*H*/
+  grid-row: 4/6;
+  grid-row: 4/span 2;
+  /* 라인번호 4번부터 2줄 확보 */
+}
+
+.item:nth-child(10) {
+  grid-column: 2/span 2;
+  /* 라인2번부터 시작해서 2칸으로 존재하겠다, 라인을 적어주냐 안적어주냐에 따라 의미 차이가 있음 */
+}
+
+/* span--> 합친다는 뜻, grid-column: span 2; */

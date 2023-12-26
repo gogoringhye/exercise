@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #000;
+  background: green;
+  padding: 10px;
+}
+
+.container .item {
+  border: 2px solid #000;
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+.container {
+  display: grid;
+  height: 80vh;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.item:nth-child(2) {
+  align-self: center;
+  justify-self: center;
+  /* place-self: align-self justify-self; */
+  place-self: center end;
+}

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+/* flex 컨테이너에 display: flex;를 적용하는 것이 시작(flex는 부모에게 줌) */
+/* flex-direction(배치 방향 설정, 아이템들이 배치되는 축의 방향을 결정) */
+/* 즉, 메인축의 방향을 가로로 할건지 세로로 할건지 정해주는 것 */
+.container {
+    border: 2px solid #000;
+    background-color: green;
+    display: flex;
+
+    flex-direction: row; /* 기본값, 옆으로 정렬(배치) */
+    flex-direction: column; /* 세로 배치(수직) */
+    flex-direction: row-reverse; /* 역순 가로배치 */
+    flex-direction: column-reverse; /* 역순 세로배치*/
+
+    flex-direction: row; /* 똑같은 명령이 있다면 아래쪽에 있는 명령이 위쪽의 명령을 덮어씀 */
+
+    /* 줄넘김 처리 */
+    /* 컨테이너가 더 이상 아이템들을 한 줄에 담을 여유 공간이 없을 때
+    아이템 줄바꿈을 어떻게 할지 결정하는 속성 */
+
+    flex-wrap: nowrap;
+    /* 기본값, 줄바꿈X(넘치면 그냥 삐져 나감) */
+    flex-wrap: wrap;
+    /* 줄바꿈O(float이나 inline-block으로 배치한 요소들과 비슷하게 동작), 
+    만약 이 값을 주게 되면 넓이 40%로 설정했을 때 막내가 떨어짐 */
+    flex-wrap: wrap-reverse;
+    /* 줄바꿈O(아이템 역순 배치) */ }
+
+    /* flex-flow(= flex-direction + flex-wrap) 
+    예🤓 flex-direction: row; flex-wrap: wrap; 
+    --> flex-flow: row wrap;으로 단축 가능 */
+
+
+
+
+    /* (기본값) block 요소인 item이 flex 되면 자식의 공간만 차지한다. 
+    넓이 값을 줬을 때 100%가 넘거나 부모의 공간보다 넘치더라도 아래로 내려가지 않음 --> 수업 중에 한 필기인데 뭐에 대한 내용인지 모르겠어서 chatgpt한테 물어봄
+
+    // 플렉스 아이템을 수직으로 배치하고 싶다면, flex-direction 속성을 사용하여 주축과 교차 축을 조절할 수 있음
+    // 블록 레이아웃을 가지는 HTML 요소를 플렉스 컨테이너로 변경--> 해당 요소의 자식 요소는 플렉스 아이템으로 취급되어 수평으로 배치 
+    // 이때, 플렉스 아이템은 기본적으로 넓이가 내용에 맞게 축소되어 배치되지만, 플렉스 컨테이너의 넓이를 넘어서지는 않음 */
+
+.container .item{border: 2px solid #000; background-color: yellow; width: 40%;}
+

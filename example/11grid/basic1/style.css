@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+/*
+//grid는 flex보다 나중에 나왔음
+//flex는 한방향 배치 구현
+//grid는 두방향 배치 구현 
+
+두개를 모두 이해한다면 적절한 곳에 알맞게 사용할 수 있음
+전체 구현은 grid를 사용하고 부분적인 구현은 flex로 하는 경우가 많음
+
+flex와 gird는 자식요소가 inline요소일지라도 block 요소로 바뀌어버린다.
+*/
+
+.container{border: 2px solid #000;
+background-color: violet;
+padding: 10px;}
+.item{border: 2px solid #000;
+background-color: rosybrown;
+padding: 10px;}
+
+
+.container{display: grid;
+grid-template-columns: 100px 300px 200px;/* 한줄, 칸을 어떻게 나눌 것인지 */
+grid-template-columns: 100px 1fr 200px;/* //fr:fraction--> 비율*/
+grid-template-columns: 1fr 1fr 1fr;/* 부모를 기준으로 1:1:1 비율*/
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-columns: repeat(5,1fr); /* 5번 반복된다, 1fr이, //1fr 1fr 1fr 1fr 1fr의 줄임말 */
+grid-template-columns: repeat(3,1fr 2fr 1fr);/* //한줄의 칸에 대한 내용, 1:2:1이 3번 반복된다 */
+
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-rows: 200px 200px;/* 설정한 1,2줄은 높이가 200px로 적용되고 나머지는 auto가 된다 */
+
+/*//줄에 관한 내용*/
+grid-template-rows: 1fr 1fr 1fr;
+height: 80vh;
+grid-template-rows: 1fr 2fr 1fr;/* 1:2:1 */
+grid-template-rows: repeat(2,1fr);/* ??(80vh라고했기 때문에 80%만큼)첫번째와 두번째줄만 1:1이 적용됨 */
+grid-template-rows: repeat(2,1fr)100px 100px;/* ??4줄에 대한 값이고 남는 값을 첫번째와 두번째값이 나눠가진다는 의미 */
+}
+
+.item{}

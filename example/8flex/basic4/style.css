@@ -1,0 +1,21 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000;background-color: green;}
+.container .item{border: 2px solid #000;background-color: yellow;}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;/* 100%보다 넘치면 아래로 떨어짐 */
+
+    /* align-content(여러 행 정렬),flex-wrap: wrap;이 설정된 상태에서, 아이템들의 행이 2줄 이상 되었을 때의 수직축 방향 정렬을 결정하는 속성 */
+    align-content: center;/* 여러 줄을 세로로 가운데 정렬 */
+    align-content: flex-start;/* 여러 줄을 세로로 시작 부분에 정렬, 내용물이 위로 올라감 */
+    align-content: flex-end;/* 여러 줄을 세로로 끝 부분에 정렬, 내용물이 아래로 내려감 */
+    align-content: space-between;/* 여러 줄을 세로로 균등하게 분배, 처음과 끝은 컨테이너의 위쪽과 아래쪽에 정렬 */
+    align-content: space-around;/* 여러 줄을 세로로 균등하게 분배하며, 줄 앞뒤에도 공간을 둠 */
+    align-content: space-evenly;/* 여러 줄을 세로로 균등하게 분배하며, 컨테이너 상단과 하단에도 공간을 똑같이 나눠줌 */
+}
+
+.item{width: 30%; height: 100px;}

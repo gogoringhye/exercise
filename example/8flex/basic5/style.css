@@ -1,0 +1,41 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.container{border: 2px solid #000;background-color: green;}
+.container .item{border: 2px solid #000; background-color: yellow;}
+
+
+.container {display: flex;}
+
+.item {
+    /* flex-basis(유연한 박스의 기본 영역), flex 아이템의 기본 크기를 설정(flex-direction이 row일 때는 너비, column일 때는 높이)   
+    // flex-basis 값: width, height 등에 사용하는 각종 단위의 수
+    // 기본값 auto는 해당 아이템의 width값을 사용, width를 따로 설정하지 않으면 컨텐츠의 크기가 됨(content는 컨텐츠의 크기로, width를 따로 설정하지 않은 경우와 같음)*/
+
+
+    /* 🤩무조건 암기, 줄어 들어라! 늘어나지마라! */
+    flex-basis: auto;/* 기본값 */
+    width: 100px; /* flex-basis: 100px; */
+    /* 현재 아무런 설정을 주지 않았기 때문에 자식이 좁아져 밑으로 떨어졌는데 
+    만약 자식에게 밑으로 떨어지라는 명령을 주게 되면 flex-basis도 200px, 300px,
+    (마치 스판처럼)늘어나는 문제가 생길수도 있어서 width를 사용하는 경우가 많음 */
+
+    flex-grow: 0;/* 기본값 */
+    /* flex-grow: 1; //0은 부정, 늘어나는 거 하지말라는 의미 */}
+
+.item:nth-child(2) {
+    flex-grow: 1;/* flex-grow--> 부모가 사용하지 않는 공간을 활용하여 커지겠다 */} 
+
+    
+/* 블록요소였던 것을 플렉스 시키는 순간?
+
+flexbox: 요소를 수평 또는 수직으로 배치하기 위한 강력한 레이아웃 시스템 제공 
+사용방법:해당 요소에 display: flex; 또는 display: inline-flex; 속성을 적용(해당 요소를 플렉스 컨테이너로 만들어주는 역할)
+
+// 요소를 플렉스(flex) 컨테이너로 변경--> 해당 요소는 블록 레이아웃에서 플렉스 레이아웃으로 변경됨. 
+
+// 플렉스 속성을 추가--> 
+1. 해당 요소의 자식 요소들은 기본적으로 수평으로 배치됨
+2. flexbox의 주축(main axis)과 교차 축(cross axis)에 따라 유연한 배치가 가능해짐
+
+🚨 flexbox는 해당 요소의 자식 요소에 적용되므로, 플렉스 속성을 적용하면 해당 요소의 자식 요소들이 플렉스 아이템으로 취급되어 배치됨 */
