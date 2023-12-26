@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.acc {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.acc h2 {
+    margin-bottom: 10px;
+}
+
+.acc .accordion {
+    background-color: #eee;
+    color: 444;
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 15px;
+    text-align: left;
+    /* 버튼은 태어날때부터 정렬로 태어나서 이 값을 줌 */
+    transition: 0.3s;
+    display: flex;
+    /* 섹션 1 누르고 타고 올라가서 플렉스 잡아줌, 네모 박스 찾아서 조정 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acc .accordion:hover,
+.acc .accordion.active {
+    background-color: #ccc;
+}
+
+.acc .accordion::after {
+    content: "\f067";
+    /* 폰트어썸에서 개발자 모드로 원하는 이모티콘 선택하여 콘텐트 복사하기 */
+    /* //f146 */
+    font-family: "Font Awesome 5 Free";
+    /* 밑에서 이 두줄도 복사해와서 무료 버전이니 pro를 free로 바꿔주기 */
+    font-weight: 900;
+    font-size: 10px;
+}
+
+.acc .accordion.active::after {
+    content: "\f067";
+}
+
+.acc .panel {
+    padding: 0 20px;
+    background-color: #fff;
+    transition: 0.3s;
+    overflow: hidden;
+    max-height: 0;
+    /*최대 높이 설정, 그거보다 커지지 마라*/
+}

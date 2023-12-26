@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h2>Scroll Down</h2>
+        <p>Scroll down to see the sticky effect.</p>
+    </header>
+
+    <nav id="navbar">
+        <a href="javascript:void(0)" class="active">Home</a>
+        <a href="javascript:void(0)">News</a>
+        <a href="javascript:void(0)">contact</a>
+    </nav>
+
+    <div class="content">
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, suscipit.</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore libero, atque quos aut suscipit commodi
+            similique quas assumenda, facere expedita illo veritatis optio nobis consectetur aliquam eveniet omnis id,
+            laborum ut nesciunt vero. Consequuntur facilis ullam laudantium minima animi, ipsa, cupiditate culpa,
+            aspernatur enim mollitia quam sint ratione dolorum!
+        </p>
+    </div>
+    <script>
+        //scroll이 발생하면 실행하는 function 안에 단지 myFunction();과 같이 함수를 호출하는 내용 뿐이면 아래와 같이 단축할 수 있다.(스크롤을 움질일때마다 함수를 호출함)
+
+        //   window.addEventListener('scroll',function(){
+        //     myFunction();
+        //   })  
+        //를 단축한 것이 아래
+
+        //window.addEventListener('scroll',myFunction)
+
+
+
+        //   window.onscroll=function(){
+        //     myFunction();
+        //   }
+        //를 단축한 것이 아래
+
+        window.onscroll = myFunction;
+
+        let navbar = document.getElementById('navbar')
+        //id 때문에 배열로 들어오지 않음
+        let sticky = navbar.offsetTop;
+        //property일때는 괄호 열고 닫으면 안됨
+        //offset은 Document를 기준으로 하는 좌표를 구한다.
+        //position은 부모를 기준으로 좌표를 구한다.
+        //offsetTop: 이 영역의 머리가 문서 전체에서 얼마나 떨어져있냐(문서를 천장에 붙여놓은 상태에서 스크롤 위치를 계산)
+        //scroll은 window 자체가 가지고 있는 것
+
+        console.log(sticky)
+
+        function myFunction() {
+            //console.log(window.scrollY)
+            console.log(window.pageYOffset)
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        }
+
+        //console.log(window.scrollY)과console.log(window.pageYOffset)은 똑같고 내장된 값이므로 외워야 함.
+    </script>
+</body>
+
+</html>
+
+<!-- a 태그 하이퍼 안에 "javascript:void(0)"를 # 대신 적어주면 클릭시 위로 튕김 현상 방지 가능함 -->

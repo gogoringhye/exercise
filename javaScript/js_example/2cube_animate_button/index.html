@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="main">
+        <div class="cube">
+            <div class="box-area">
+                <div class="box box-front">
+                    <h2>1</h2>
+                </div>
+                <div class="box box-right">
+                    <h2>2</h2>
+                </div>
+                <div class="box box-back">
+                    <h2>삼</h2>
+                </div>
+                <div class="box box-left">
+                    <h2>4</h2>
+                </div>
+                <div class="box box-top">
+                    <h2>5</h2>
+                </div>
+                <div class="box box-bottom">
+                    <h2>6</h2>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <div class="rotate-x-button">
+                <button class="rotate-x-top" onclick="rotateXAxis(1)">위</button>
+                <button class="rotate-x-bottom" onclick="rotateXAxis(-1)">아래</button>
+            </div><!-- 버튼이 클릭될 때마다 함수가 호출됨 -->
+            <div class="rotate-y-button">
+                <button class="rotate-y-left" onclick="rotateYAxis(-1)">좌</button><!-- 왼쪽으로 넘어가는게 좌가 됨 -->
+                <button class="rotate-y-right" onclick="rotateYAxis(1)">우</button>
+            </div>
+            <div class="front" onclick="front()">정면</div>
+        </div>
+
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
+
+<!-- js에 적지 않고 이렇게도 많이 씀,"rotateXAxis(1)"은 선생님이 만든 함수 -->

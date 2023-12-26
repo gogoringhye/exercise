@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;/* 넘치는 부부분은 쫓아오지마! */
+}
+
+.main h2 {
+    color: #fff;
+    font-size: 100px;
+}
+
+.main .img-1 {
+    background: url(img/img-1.jpg)no-repeat center;
+    transition-duration: 800ms;
+}
+
+.main .img-2 {
+    background: url(img/img-2.jpg)no-repeat center;
+    transition-duration: 600ms;
+}
+
+.main .img-3 {
+    background: url(img/img-3.jpg)no-repeat center;
+    transition-duration: 400ms;
+}
+
+.main .img-4 {
+    background: url(img/img-4.jpg)no-repeat center;
+    transition-duration: 200ms;
+}
+
+.main .img-5 {
+    background: url(img/img-5.jpg)no-repeat center;
+    transition-duration: 50ms;
+}
+
+.main .img {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background-size: cover;
+    transition-timing-function
+    /* 시간을 어떻게 쓸건지 조절 */
+    : ease-out;
+    /* 멈추는 시점에 천천히 */
+
+    /* 
+    cover(더 자주 사용)는 배경을 커버 시키는 게 목적이라면 
+    contain은 이미지가 온전히 다 나오게 하는 것이 목적임 
+    */
+
+    /* 공통적인걸 아래쪽에 적어줘야 값이 제대로 적용이 됨 */
+}

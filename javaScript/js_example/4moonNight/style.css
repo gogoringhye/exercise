@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0a2a43;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+section #road {
+    z-index: 100;
+    /* 글자가 산 뒤로 넘어가게끔 하는 값 */
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+
+    z-index: 110;
+    /* text에게는 100을 줘서 110을 줌 */
+    background-image: linear-gradient(to top,
+            /* 위로 방향을 틀어라 */
+            #0a2a43, transparent);
+    /* 투명하게 하겠다 */
+}
+
+.text {
+    color: #fff;
+    font-size: 10em;
+    /* text의 font-size *10 */
+    position: relative;
+}
+
+.content {
+    margin: 100px auto;
+    width: 800px;
+    color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.content h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.content p {
+    font-size: 20px;
+    line-height: 30px;
+}

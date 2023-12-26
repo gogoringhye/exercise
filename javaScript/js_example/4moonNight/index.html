@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <!-- h2 빼고 다 죽은 자식 -->
+        <img src="img/bg.jpg" alt="bg" id="bg">
+        <img src="img/moon.png" alt="moon" id="moon">
+        <img src="img/mountain.png" alt="mountain" id="mountain">
+        <img src="img/road.png" alt="road" id="road">
+        <h2 class="text" id="text">Moon Night</h2>
+    </section>
+    <section class="content">
+        <h3>Parallax Background Scrolling</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aliquid repellendus modi tempore velit, amet
+            laudantium perspiciatis alias vero, debitis magni blanditiis, ut rem pariatur beatae id quibusdam inventore!
+            Enim consequatur autem molestiae et. A ducimus distinctio ipsum commodi pariatur ullam quisquam earum
+            accusantium possimus accusamus quidem, tempore est expedita et nesciunt labore necessitatibus esse. Veniam
+            expedita delectus nemo nostrum non! Consequuntur, delectus ex. Maiores non fugit harum ab porro repudiandae
+            soluta eligendi distinctio sequi? Voluptatum soluta atque id accusantium animi ad rerum exercitationem,
+            consectetur velit possimus sit. Doloribus nulla reprehenderit quas molestiae laborum a nam quaerat! Labore,
+            quaerat doloremque?</p>
+    </section>
+
+    <script>
+        //let bg = document.getElementById('bg');
+        let bg = document.querySelector("#bg");
+        let moon = document.getElementById('moon');
+        let mountain = document.getElementById('mountain');
+        let road = document.getElementById('road');
+        let text = document.getElementById('text');
+
+        //scroll은 window의 이밴트이다.
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY; //scroll바는 window에 붙어있음
+            console.log(value)
+
+            moon.style.left = -value * 0.2 + 'px';
+            //값을 빼주기 위해 곱해줌
+            moon.style.top = value * 0.35 + 'px';
+            // 달이 산 뒤로 지기 위해서 양수를 주고 천천히 움직이라고 0.35를 곱해줌, 값을 줄이기 위한 방법 중 하나임
+
+            bg.style.top = value * 0.2 + 'px';
+            //하늘이 올라가는 것처럼 보이는 값, 스크롤을 20프로만 따라옴
+            mountain.style.top = -value * 0.15 + 'px';
+            //산이 솟구치게 보이게 하는 값, 15프로만 줌
+            road.style.top = value * 0.15 + 'px';
+            //밑으로 떨어지게 할 거라서 양수로 만들어줌
+            text.style.top = value + 'px'
+        })
+    </script>
+
+</body>
+
+</html>

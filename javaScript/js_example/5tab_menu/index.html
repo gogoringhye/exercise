@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab {
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            overflow: hidden;
+            /* 여기서는 숨기는 것이 아니라 float 됐을 때 부모가 깨지지 말라고 overflow: hidden을 줌 */
+        }
+
+        .tab button {
+            background-color: inherit;
+            /* inherit은 부모가 가진 것을 상속받음 */
+            float: left;
+            border: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tabcontent {
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+            border-top: none;
+        }
+
+        .tabcontent .topright {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .tabcontent .topright:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Tabs</h2>
+    <p>오른쪽에 x 버튼을 클릭하면 현재 tab이 닫힙니다.</p>
+
+    <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event,'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event,'Tokyo')">Tokyo</button>
+    </div>
+    <!-- 바깥에 쌍따옴표로 묶고있기 때문에 안쪽엔 작은 따옴표로 묶음 -->
+
+
+    <div id="London" class="tabcontent">
+        <span class="topright">&times;</span>
+        <h3>London</h3>
+        <p>London is the capital city of England</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <span class="topright">&times;</span>
+        <h3>Paris</h3>
+        <p>Paris is the capital city of France</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+        <span class="topright">&times;</span>
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital city of Japan</p>
+    </div>
+
+    <!-- 원래는 형이 float이 있으면 동생도 float이 있어야 함 -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
