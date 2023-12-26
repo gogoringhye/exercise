@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body>div{ height: 100vh;}
+        .div1{background-color: skyblue;}
+        .div2{background-color: rgb(245, 228, 199); padding-top: 200px;}
+        .div2>div{width: 150px; height: 150px; margin-bottom:100px;}
+        .div2>div.square{background-color: chartreuse;}
+        .div2>div.square2{background-color:cyan}
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2">
+        <div class="square"></div>
+        <div class="square2"></div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        gsap.to(".square",{
+            x:700,
+            duration:3,
+            scrollTrigger:{
+                trigger:".div2",
+                start:"top 0%",
+                end:"+=200vh",
+                scrub:2,
+                pin:'.div2',
+                markers:{
+                    startColor:"purple",
+                    endColor:"fuchsia",
+                    fontSize:"1rem"
+                },
+
+                
+                
+                
+            }
+        })
+
+    </script>
+</body>
+</html>

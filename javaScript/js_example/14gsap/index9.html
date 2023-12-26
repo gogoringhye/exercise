@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     a{color: #fff; text-decoration: none;}
+     body{display: flex;justify-content: center; align-items: center;}
+    .btn_wrap{position: absolute; left: 5vw; top: 5vh;display: flex; z-index: 20;}
+    .btn_wrap>a{padding: 5px 10px; background-color: #222;border-radius: 10px; margin-right: 10px;}
+    .imgs{position:relative; width: 800px; }
+    .imgs>img{position: absolute;width: 100%; left: 0; top: 0;}
+    .작은원들{transform: translate(37px, 9px);}
+    </style>
+</head>
+
+<body>
+    <div class="btn_wrap">
+        <a href="#" class="play">play</a>
+        <a href="#" class="pause">pause</a>
+        <a href="#" class="reverse">reverse</a>
+        <a href="#" class="restart">restart</a>
+        <a href="#" class="test">test</a>
+    </div>
+    <div class="imgs">
+        <img class="원" src="img/Untitled-5.png" alt="">
+        <img class="손" src="img/Untitled-4.png" alt="">
+        <img class="작은원들 장식" src="img/Untitled-3.png" alt="">
+        <img class="반짝이 장식" src="img/Untitled-2.png" alt="">
+        <img class="손배" src="img/Untitled-1.png" alt="">
+    </div>
+<!-- 일러스트일때만 svg로 저장 가능, 포토샵 파일인 경우 일일히 png로 변환하여 저장해줘야함 -->
+
+<!-- 포토샵에서 Objects 눈 감기고 Shapes 폴더 우클릭 -- duplicate layer ▶ new ▶ ok -- 후 export ▶ save for web ▶ save 뽑아서 사진 저장 -- 제일 늦게 뽑아와준 애부터 적어줌-->
+
+<!-- gsap 연결 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- ScrollTrigger는 반드시 gsap 밑에 만들어야함(Docs--Free* Plugins--ScrollTrigger cdn)-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+//let tl=gsap.timeline({timeline에 관련된 모든 트윈에 설정값을 적어둘수 있다})
+let tl=gsap.timeline( {paused:true} );
+    tl.from('.원',{duration:1.5, opacity:0,x:50,y:50})
+    tl.from('.손',{duration:1, opacity:0,x:-50,y:50},'-=0.7')//1초동안 그대로 동작하지만 시작 시점을 0.7초 빠르게 만들어줌
+    tl.add('test')
+    tl.from('.장식',{duration:1, opacity:0,x:50,y:-50,stagger:0.2})//stagger:{each:0.2}//<-- 쓸 게 each 밖에 없으면 stagger:{each:0.2}로 써줘도 됨
+    tl.from('.손배',{duration:1, opacity:0,x:50,y:50},'<')//내 앞에 있는 트윈과 시작을 같이함
+
+    document.addEventListener('click',function(event){
+    let check=event.target.classList
+    //console.log(check)
+            
+    //hasClass(클래스명) ==? 클래스명의 클래스를 가지고 있는가?  true/false
+
+    if(check.contains('play')){tl.play()}
+    if(check.contains('pause')){tl.pause()}//멈춤
+    if(check.contains('reverse')){tl.reverse()}//거꾸로 
+    if(check.contains('restart')){tl.restart()}//다시실행
+    //if(check.contains('test')){tl.kill()}//다시실행안됨(play 버작동 안됨)
+    if(check.contains('test')){tl.play('test')}//tl.add('test')부터 실행})
+})
+    </script>
+</body>
+</html>

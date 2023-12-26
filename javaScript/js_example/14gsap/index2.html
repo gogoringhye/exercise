@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wrap img {
+            width: 100px;
+        }
+        .wrap>div{width: 100px;height: 100px;}
+    </style>
+</head>
+
+<body>
+    <!-- https://gsap.com/의 docs -->
+    <div>
+        <div class="wrap">
+            <div class="하나">
+                <img src="img/1.png" alt="틴틴">
+            </div>
+            <div class="둘">
+                <img src="img/2.png" alt="팅클">
+            </div>
+            <div class="셋">
+                <img src="img/3.png" alt="베리">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+    </script>
+
+    <script>
+    gsap.to('.하나',{x:300, repeat:2,yoyo:true,repeatDelay:1})//기본적으로 한번 반복을 가지고 있는데 2번 더 반복하라는 값을 주었기 때문에 총 3번 반복하는 것임 
+    gsap.to('.하나',{x:300, repeat:-1,yoyo:true,repeatDelay:1})//repeat의 -1은 무한반복
+    </script>
+</body>
+
+</html>
+
+
+<!-- 😲 repeat:-1 -- 무한반복,
+         repeat:2 -- 기본적으로 1번은 재생 + 반복 2 ==> 3번 재생-->
+ 

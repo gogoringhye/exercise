@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body>div{ height: 100vh;}
+        .div1{background-color: yellowgreen;}
+        .div2{background-color: tomato; padding-top: 200px;}
+        .div2>div{width: 150px; height: 150px; margin-bottom:100px;}
+        .div2>div.square{background-color: #f7efa1;}
+        .div2>div.square2{background-color:#db96b4}
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2">
+        <div class="square"></div>
+        <div class="square2"></div>
+    </div>
+    
+
+ <!-- gsap 연결 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+ <!-- ScrollTrigger는 반드시 gsap 밑에 만들어야함(Docs--Free* Plugins--ScrollTrigger cdn)-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        gsap.to(".square",{
+            x:700,
+            duration:3,
+            scrollTrigger:{
+                trigger:".square",
+                start:"top 30%",
+                end:"center 10%",
+                scrub:true,
+                toggleClass:"action", 
+                //marker의 색을 바꾸는 방법
+                markers:{
+                    startColor:"pink",
+                    endColor:"yellow",
+                    fontSize:"30px"
+                }
+                
+                
+            }
+        })
+
+    </script>
+</body>
+</html>

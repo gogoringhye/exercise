@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        nav{position: sticky;top: 0;transition: 0.6s; background-color:tan; color:#fff;}
+        nav.nav-active{background-color: #fff;color: #000;}
+        ul{display: flex;justify-content: flex-end;list-style: none;padding: 40px;}
+        li{margin-right: 60px;}
+       .panel{height: 100vh;padding-bottom: 100vh;}
+       .panel p{padding-top: 50px;margin: 0 auto;max-width: 1000px;}
+    </style>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+<div class="panel">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eveniet ipsum quia aliquid exercitationem, quam rerum veritatis dolor? Quae veritatis quia fuga ab laborum laboriosam laudantium modi unde voluptatem iste, ad fugit ratione suscipit repellat in dolor dolorem tenetur blanditiis, iure consectetur provident est consequatur vitae porro? Amet pariatur labore maxime porro temporibus, dolore molestiae natus perferendis doloremque eum quidem autem veritatis. Error, nesciunt reprehenderit! Id aperiam veniam in adipisci tenetur nostrum, sapiente ex, corrupti sequi quidem a totam, qui reiciendis doloremque fuga illum perspiciatis alias natus odit possimus aspernatur. Aspernatur magnam, voluptatum suscipit consequuntur nihil itaque officiis iure consectetur reiciendis doloremque? Voluptate debitis, itaque iusto dolorem ratione doloribus quas et! Expedita porro fuga itaque esse rem beatae temporibus vero, deleniti quae. Recusandae laudantium impedit facere minima sed debitis similique odit inventore eum suscipit, iure minus neque saepe. Molestiae blanditiis doloremque fuga dicta asperiores mollitia tempore tenetur eum quis cumque temporibus, magni, laborum laboriosam officia expedita nemo, eveniet iure nisi quo esse voluptatum necessitatibus repellat! Quos odit nostrum ipsam aut beatae corporis inventore, incidunt laudantium voluptates quia repellat labore alias cumque eos sed amet pariatur repellendus. Eaque quidem illo impedit iusto error voluptatem, nisi, labore hic ea, animi perferendis aliquid.</p>
+</div>
+
+<!-- gsap cdn 연결-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+<!-- ScrollTrigger(는 항상 gsap 밑에 적어줘야함) cdn 연결, 작동 안될시 버전 다름 유의 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger)
+//     gsap.to("nav",{
+//     scrollTrigger:{
+//         trigger:".panel",
+//         start:"top 6%",
+//         markers:true,
+//         //toggleClass:"nav-active",//panel 클래스명 추가하는 방법
+//         toggleClass:{targets:"nav",className:}"nav-active"}//new
+// }
+// })
+
+
+//위와 동일한 방식임
+ScrollTrigger.create({
+    trigger:".panel",
+        start:"top 6%",
+        markers:true,
+        toggleClass:{targets:"nav",className:"nav-active"}
+        })
+
+</script>
+
+</body>
+
+</html>

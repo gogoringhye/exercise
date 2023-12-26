@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{margin: 0; padding: 0;}
+        body>div{ height: 100vh;}
+       .div1{background-color: #dbb6fd;}
+       .div2{background-color: #cd84cd;padding-top: 200px;}
+       .div2>div{width: 150px;height: 150px;margin: 100px;}
+       .div2>div.square{background-color: #3d627b;}
+       .div2>div.square2{background-color: #9398ff;}
+</style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2">
+        <div class="square"></div>
+        <div class="square2"></div>
+    </div>
+
+ <!-- gsap 연결 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+ <!-- ScrollTrigger는 반드시 gsap 밑에 만들어야함(Docs--Free* Plugins--ScrollTrigger cdn)-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+<script>
+gsap.registerPlugin(ScrollTrigger)//적어주면 오히려 좋아
+
+gsap.to(".square",{
+    x:700,
+    duration:3, //이만큼이 애니메이션, 3초동안 700만큼 감
+    scrollTrigger:{
+    trigger:".square",
+    start:"top 30%",// trigger의 주체의 top지점이 viewport의 top에서 30% 지점에서 시작
+    end:"center 10%",// trigger의 주체의 center지점이 viewport의 top에서 10% 지점에서 종료//end--> stagger 되는 것의 가운데 지점
+    markers:true,//markers-->start, end 등 애니메이션의 위치를 화면에 표시
+    scrub:true,//start부터 시작해서 end까지 애니메이션이 scroll에 반응하여 애니메이션이 실행됨//0대신 숫자를 입력할 수 있다(0은 무조건 false)
+    toggleClass:"action",//start에서 end 사이일때는 action 클래스가 .square에 추가되고 그외 영역에서는 action 클래스가 삭제됨
+
+}
+})
+</script>
+
+</body>
+
+</html>
+
+<!-- 선이 초록선에 닿으면 animation 작동 시작, scroll-end 부분이 end에 닿으면 작동이 끝남  -->

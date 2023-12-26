@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+     .box{width: 100px;height: 100px;background-color: rgb(191, 201, 172);}
+     .panel{height: 100vh;background-color: lightgray;}
+    </style>
+</head>
+
+<body>
+<nav>
+   <div class="panel"></div>
+   <div class="box"></div>
+   <div class="panel"></div>
+</nav>
+
+<!-- gsap cdn 연결-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+<!-- ScrollTrigger(는 항상 gsap 밑에 적어줘야함) cdn 연결, 작동 안될시 버전 다름 유의 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    ScrollTrigger.create({
+        trigger:".box",
+        start:"top 80%",
+        end:"top 50%",
+        markers:true,
+        onEnter:()=>{console.log("진입완료")},
+        onLeave:()=>{console.log("진입방향으로 벗어남")},
+        onEnterBack:()=>{console.log("역진입완료")},
+        onLeaveBack:()=>{console.log("역진입방향으로 벗어남")},
+    })
+</script>
+
+
+</body>
+
+</html>

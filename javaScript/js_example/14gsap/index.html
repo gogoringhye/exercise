@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wrap img {
+            width: 100px;
+        }
+        .wrap>div{width: 100px;height: 100px;}
+    </style>
+</head>
+
+<body>
+    <!-- https://gsap.com/의 docs -->
+    <div>
+        <div class="wrap">
+            <div class="하나">
+                <img src="img/1.png" alt="틴틴">
+            </div>
+            <div class="둘">
+                <img src="img/2.png" alt="팅클">
+            </div>
+            <div class="셋">
+                <img src="img/3.png" alt="베리">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+    </script>
+    <!-- gsap docs 들어가서 Included in GSAP's core 부분 cdn 버튼 클릭해서 copy-->
+
+    <!-- gsap.to(누가,{실행}) -->
+    <script>
+    gsap.to('.하나',{x:700,scale:3,duration:3})//실행문대로 된다
+    gsap.from('.둘',{x:700,scale:3,duration:3})//시작이 실행문, 도착은 원래 위치(하나에서 둘 상태로 되는 것)
+    gsap.fromTo('.셋',{x:800, y:400, opacity:0, scale:1, duration:1},{x:400, y:0, opacity:1, scale:3, duration:3})//gsap.fromTo('.셋',{from상태},{to상태}) 
+    </script>
+</body>
+
+</html>

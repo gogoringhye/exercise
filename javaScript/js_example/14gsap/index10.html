@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{margin: 0; padding: 0;}
+        body>div{ height: 100vh;}
+       .div1{background-color: #dbb6fd;}
+       .div2{background-color: #cd84cd;padding-top: 200px;}
+       .div2>div{width: 150px;height: 150px;margin: 100px;}
+       .div2>div.square{background-color: #3d627b;}
+       .div2>div.square2{background-color: #9398ff;}
+</style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2">
+        <div class="square"></div>
+        <div class="square2"></div>
+    </div>
+
+ <!-- gsap 연결 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+ <!-- ScrollTrigger는 반드시 gsap 밑에 만들어야함(Docs--Free* Plugins--ScrollTrigger cdn)-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+ <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.to(".square",{
+        x:700,
+        duration:3,
+        scrollTrigger:{
+        trigger:".square",
+        start:"top 60%",
+        end:"top 50%",
+        markers:true,
+        //scrub:true,
+
+        //toggleActions:"진입시 떠났을때 백으로진입 백으로진입시떠났을때"
+        //toggleActions:"onEnter onLeave onEnterBack onLeaveBack"
+        //toggleActions에 사용할수 있는 동작:play,pause,resum(정지시점부터다시실행), reverse, restart, reset, complete, none
+        //complete(완료지점)
+
+        //toggleActions:"play reverse restart reset"
+        //toggleActions:"play none none none"
+        toggleActions:"restart pause resume complete"
+            
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
+
+<!-- //페이지 스크롤이나 애니메이션 등의 이벤트에 대응하는 콜백 함수들을 정의할 때 사용되는 용어
+     //주로 특정 라이브러리나 프레임워크에서 사용되는 것이 흔하며, 주로 스크롤 애니메이션과 관련있음
+     //이러한 이벤트와 콜백 함수들은 일반적으로 스크롤 애니메이션 라이브러리나 페이징 스크롤 효과를 적용하는 데 사용됨 
+     //예) ScrollMagic, Intersection Observer API 등
+
+     //onEnter: 사용자가 아래로 스크롤하여 지정된 지점을 지나갈 때 호출됨 
+
+     //onLeave: 사용자가 위로 스크롤하여 지정된 지점을 지나치면 호출됨 
+
+     //onEnterBack: 사용자가 아래로 스크롤하여 지정된 지점을 지나고, 그 다음 다시 위로 스크롤할 때 호출됨
+
+     //onLeaveBack: 사용자가 아래로 스크롤하여 지정된 지점을 지나고, 그 다음 다시 위로 스크롤하여 지나갈 때 호출됨 
+-->
+
+

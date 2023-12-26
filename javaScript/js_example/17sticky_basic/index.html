@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .wrap{/* overflow: hidden; */ container: content;}
+    .main{height: 300vh; background-color:pink;}
+    .sticky{width: 200px;
+    /* (position sticky가 되는 것 중에)부모들 중 어느 누구도 overflow:hidden;이 있으면 안됨(sticky 내부에서 해결하려고 사용하는 overflow:hidden;는 ㄱㅊ?) */
+    position: sticky; top: 0;}
+    .sticky img{width: 100%;}
+    </style>
+<!--
+//sticky 사용 주의사항
+//(position: sticky;를 가진 요소가)부모 요소 중 하나라도 overflow: hidden; 속성을 가지고 있다면 해당 요소는 스크롤에 따라 고정되지 않음.(position: sticky;가 제대로 동작하지 않을 수 있다)
+//position: sticky;가 제대로 동작하기 위해서는 해당 요소(부모 요소들이)가 스크롤 가능한 영역 내에 있어야 함 
+▶ overflow: hidden;이 적용된 부모는 스크롤이 되지 않아 해당 요소가 움직이지 않게 되기 때문임
+--스크롤 가능한 영역을 가진 부모가 필요
+만약 부모 중 하나라도 overflow: hidden;이면 position: sticky;가 제대로 동작하지 않을 수 있습니다.
+-->
+</head>
+
+<body>
+    <section class="top" style="height: 100vh; background-color: #ccc;"></section>
+
+<div class="wrap">
+    <section class="main">
+        <div class="sticky">
+            <img src="run.gif" alt="">
+        </div>
+    </section>
+</div>
+
+    <section class="bottom" style="height: 100vh; background-color: #ccc;"></section>
+</body>
+</html>
