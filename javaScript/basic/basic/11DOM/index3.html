@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //innerHTML을 이용하여 태그 만들기
+
+        let strHTML = "";
+        strHTML += "<h1><div>제목: 농담곰</div>";
+        strHTML +=
+            "<img src='https://mblogthumb-phinf.pstatic.net/MjAyMDA2MDVfMjc1/MDAxNTkxMzQxODg3NzUw.a4od1nN8q_1Io5FPcmuDVrZiTDJJFvPor8ZbWDCz0AMg.SmPtuy8FSN2WAp7VI2Kf6hZxJEuPcZwsXMPVEQrwdYcg.GIF.gelatoyoon/KakaoTalk_Moim_4yC4BB8Wg6i9exmKh5Qth5lHcPSZqO.gif?type=w800' alt='이미지' ";
+        strHTML += "width='400' height='300'>"
+        strHTML += "</h1>"
+        console.log(strHTML)
+
+        document.body.innerHTML = strHTML
+        //진짜 태그로 쓰려면 innerHTML 사용해야함
+
+        //document.body.innerText = strHTML
+        //텍스트 자체로 삽입됨
+    </script>
+</body>
+
+</html>
